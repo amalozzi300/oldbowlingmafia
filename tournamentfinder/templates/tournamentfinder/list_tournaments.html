@@ -1,0 +1,57 @@
+{% extends 'bowlingmafia/layout.html' %}
+
+{% block title %}
+    <title>Tournaments</title>
+{% endblock title%}
+
+{% block content %}
+    <h1 class="model-table-header">Tournaments</h1>   
+    
+    {% if logged_in %}
+        <div id="center">
+            <a class="add-link" href="{% url 'create_tournament' %}">Register a Tournament</a>
+        </div>
+    {% endif %}
+
+    <table class="model-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start Time</th>
+                <th>Location</th>
+                <th>Tournament Director</th>
+                <th>Flyer</th>
+                <th>Website</th>
+                {% if logged_in %}
+                    <th colspan="2">Admin Actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for tournament in tournaments %}
+                <tr>
+                    <td>{{ tournament }}</td>
+                    <td>{{ tournament.start_time }}</td>
+                    <td>{{ tournament.bowling_center }}</td>
+                    <td>{{ tournament.tournament_director }}</td>
+                    <td>
+                        {% if tournament.flyer %}
+                            <a href="{{ tournament.flyer.url }}" target="_blank">Click Here</a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ tournament.website }}" target="_blank">{{ tournament.website }}</a>
+                    </td>
+                    {% if logged_in %}
+                        <td>
+                            <a href="{% url 'update_tournament' tournament.id %}">Edit</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete_tournament' tournament.id %}">Delete</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

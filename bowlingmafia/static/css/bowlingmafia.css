@@ -1,0 +1,151 @@
+/* General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+/* Header Banner */
+header {
+    background-image: linear-gradient(rgb(207, 63, 54), black, darkgrey, black, rgb(207, 63, 54));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    width: auto;
+    max-height: 170px;
+    margin: 0 10px;
+}
+
+header h1 {
+    color: black;
+    font-family: 'Protest Revolution';
+    font-size: 50px;
+    margin: 0 25px;
+}
+
+/* Navigation Bar */
+nav {
+    border-bottom: 3px solid rgb(207, 63, 54);
+    text-align: center;
+    position: sticky;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 14px 0;
+}
+
+.nav-item {
+    display: inline;
+    padding: 14px 0;
+}
+
+.nav-link {
+    font-size: 20px;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+a.nav-link.active {
+    background-color: rgb(25, 25, 25);
+}
+
+a.nav-link:hover {
+    background-color: rgb(207, 63, 54);
+    padding-bottom: 15px;
+}
+
+/* Model Tables */
+h1.model-table-header {
+    font-family: 'Protest Revolution';
+    font-size: 40px;
+    text-align: center;
+    padding: 14px 0;
+    margin-top: 10px;
+}
+
+#center {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+a.add-link {
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.model-table {
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    border-collapse: collapse;
+    width: 98%;
+    padding: 5px;
+    margin: 10px auto 0;
+}
+
+table.model-table, 
+.model-table th, 
+.model-table td {
+    border: 3px solid rgb(207, 63, 54);
+    vertical-align: middle;
+    height: 40px;
+}
+
+.model-table thead {
+    border-bottom: 6px double rgb(207, 63, 54);
+}
+
+.model-table th {
+    font-size: 23px;
+}
+
+/* Model Forms */
+h1.model-form-header {
+    font-family: 'Protest Revolution';
+    font-size: 40px;
+    text-align: center;
+    padding: 14px 0;
+    margin-top: 10px;
+}
+
+.model-form {
+    font-size: 25px;
+    text-align: center;
+    width: 70%;
+    margin: 3px auto 0;
+}
+
+.model-form * {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 7px 0;
+}
+
+.model-form p {
+    margin: 10px 5px;
+}
+
+.model-form input, .model-form select {
+    font-size: 18px;
+    vertical-align: text-top;
+    padding: 5px;
+}
+
+.model-form input[type=submit] {
+    display: block;
+    margin: 15px auto 0;
+}

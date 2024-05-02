@@ -1,0 +1,16 @@
+{% extends 'bowlingmafia/layout.html' %}
+
+{% block title %}
+    <title>Register a New {{ model_name }}</title>
+{% endblock title %}
+
+{% block content %}
+    <h1 class="model-form-header">Register a New {{ model_name }}</h1>
+    
+    <form class="model-form" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+{% endblock content %}

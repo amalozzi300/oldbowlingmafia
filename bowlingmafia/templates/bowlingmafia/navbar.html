@@ -1,0 +1,37 @@
+{% url 'list_tournaments' as list_tournaments %}
+{% url 'list_centers' as list_centers %}
+{% url 'list_directors' as list_directors %}
+{% url 'login' as login %}
+{% url 'logout' as logout %}
+
+<nav>
+    {% comment %}  Links  {% endcomment %}
+    <ul>
+        <li class="nav-item">
+            <a class="nav-link {% if request.get_full_path == list_tournaments %}active{% endif %}" href="{{ list_tournaments }}">
+                Tournaments
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.get_full_path == list_centers %}active{% endif %}" href="{{ list_centers }}">
+                Bowling Centers
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.get_full_path == list_directors %}active{% endif %}" href="{{ list_directors }}">
+                Tournament Directors
+            </a>
+        </li>
+        <li class="nav-item">
+            {% if not logged_in %}
+                <a class="nav-link {% if request.get_full_path == login %}active{% endif %}" href="{{ login }}">
+                    Login
+                </a>
+            {% else %}
+                <a class="nav-link" href="{{ logout }}">
+                    Logout
+                </a>
+            {% endif %}
+        </li>
+    </ul>
+</nav>

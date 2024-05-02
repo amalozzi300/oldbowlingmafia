@@ -1,0 +1,55 @@
+{% extends 'bowlingmafia/layout.html' %}
+
+{% block title %}
+    <title>Bowling Centers</title>
+{% endblock title %}
+
+{% block content %}
+    <h1 class="model-table-header">Bowling Centers</h1>
+            
+    {% if logged_in %}
+        <div id="center">
+            <a class="add-link" href="{% url 'create_center' %}">Register a Bowling Center</a>
+        </div>
+    {% endif %}
+
+    <table class="model-table">
+        <thead>
+            <tr>
+                <th>Center Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Phone Number</th>
+                <th>Website</th>
+                {% if logged_in %}
+                    <th colspan="2">Admin Actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for center in bowling_centers %}
+                <tr>
+                    <td>{{ center.center_name }}</td>
+                    <td>{{ center.street_address }}</td>
+                    <td>{{ center.city }}</td>
+                    <td>{{ center.state }}</td>
+                    <td>{{ center.zip_code }}</td>
+                    <td>{{ center.phone_number }}</td>
+                    <td>
+                        <a href="{{ center.website }}" target="_blank">{{ center.website }}</a>
+                    </td>
+                    {% if logged_in %}
+                        <td>
+                            <a href="{% url 'update_center' center.id %}">Edit</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete_center' center.id %}">Delete</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
